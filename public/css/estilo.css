@@ -1,0 +1,169 @@
+@font-face {
+  font-family: 'YourFontName';
+  src: url('..//assets/imgs/WhatnotW00Regular.ttf') format('truetype'); 
+ 
+}
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'YourFontName';
+    background-color: black;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 250px;
+    background-color: #84474b; /* Cor de fundo da barra lateral */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    
+  }
+
+  .brand {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .brand h2 {
+    color: #fff; /* Cor do texto do título */
+  }
+
+  .nav-links ul {
+    list-style: none;
+    padding: 0;
+    border: solid 2.5px black;
+    border-radius: 5px;
+    outline: 2px solid antiquewhite; 
+    background-color: rgba(180, 180, 180, 0.1);
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff; /* Cor do texto dos links */
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    background-color: #444; /* Cor de fundo ao passar o mouse sobre os links */
+  }
+
+  .content {
+    margin-left: 250px; /* Deixe espaço para a barra lateral */
+    padding: 20px;
+  }
+
+  .banner {
+    height: 100vh;
+    background-image: url('../assets/imgs/6hhetyy8wcu81.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .banner p {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    color: white;
+    text-align: center;
+  }
+
+  .banner p span {
+    font-weight: 800;
+  }
+
+  .social {
+    background-color: #e5e5e5;
+    display: flex;
+    justify-content: center;
+  }
+
+  .social .container {
+    justify-content: space-around;
+  }
+
+  .social .container .boxes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px 0;
+  }
+
+  .social p {
+    text-align: center;
+  }
+
+  .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .box img {
+    width: 170px;
+  }
+
+  .box h4 {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #000;
+  }
+
+  .box p {
+    font-size: 16px;
+    color: #000;
+  }
+
+  .footer {
+    background-color: #32b9cd;
+    height: 150px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer .version {
+    font-size: 12px;
+  }
+
+  li img {
+    width: 50%;
+  }
+
+  .gfs {
+    display: flex;
+    align-items: center;
+    
+    
+    
+  }
+
+  .gfs{
+  float: left;
+  width: 10%;
+  height: 30%;
+  border-radius: 5px;
+
+  }
+
+  .gfs:hover
+  {
+  background-image: url("..//assets/imgs/rewind.gif");
+  background-size: 100px;
+
+  }
