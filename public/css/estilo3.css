@@ -92,38 +92,34 @@
     width: 50%;
   }
 
-.banner .container {
-  border: solid 3px black;
-  padding: 5%;
-  border-radius: 15px;
-  margin-left: 10%;
-  outline: 2px solid antiquewhite; 
-    background-color: rgba(180, 180, 180, 0.1);
-    width: 15%;
-
-}
-
-.banner .container h1 {
-  margin-left: 40px;
-
-}
-
-.banner .container input {
-  outline: none;
-  border-radius: 5px;
-  border: none;
-  margin-bottom: 10px;
-  margin-left: 15px;
-
-}
-
-.banner .container button {
-  border-radius: 5px;
-  border: none;
-  margin-left: 80px
-
-}
-
-
-
- 
+  .banner .container {
+    border: solid 3px black;
+    padding: 8%;
+    border-radius: 15px;
+    margin-left: 10%;
+    outline: 2px solid antiquewhite; 
+      background-color: rgba(180, 180, 180, 0.1);
+  
+      width: 23%;
+  }
+  
+  .banner .container h1 {
+    margin-left: 40px;
+  
+  }
+  
+  .banner .container input {
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    margin-left: 15px;
+  
+  }
+  
+  .banner .container button {
+    border-radius: 5px;
+    border: none;
+    margin-left: 80px
+  
+  }

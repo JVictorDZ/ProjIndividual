@@ -93,13 +93,13 @@
 
 .banner .container {
   border: solid 3px black;
-  padding: 5%;
+  padding: 8%;
   border-radius: 15px;
   margin-left: 10%;
   outline: 2px solid antiquewhite; 
     background-color: rgba(180, 180, 180, 0.1);
 
-    width: 15%;
+    width: 40%;
 }
 
 .banner .container h1 {
