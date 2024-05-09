@@ -4,6 +4,11 @@
  
 }
 
+@font-face {
+  font-family: 'Lis2';
+  src: url(..//assets/imgs/Dudu_Calligraphy.ttf);
+}
+
 
   body {
     margin: 0;
@@ -74,6 +79,15 @@
     align-items: center;
   }
 
+section .banner {
+  background-image: url('..//assets/imgs/0c0b43cefc2cc9bddacaf51a73a3a3c0.jpg');
+ }
+
+
+
+
+
+
   .banner p {
     width: 50%;
     margin: 0;
@@ -97,9 +111,49 @@
     z-index: 1; /* Ensure the titulo is above other elements */
   }
 
+  .titulonum2 {
+    position: absolute;
+    top: 115%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    color: black;
+    z-index: 1; 
+    font-size: 50px;
+    margin-top: 0
+  }
+
+
+
   
   li img {
     width: 50%;
   }
 
+  section {
+    background-image: url(..//assets/imgs/life-is-strange-2-is-beautifully-boring_9dqy.jpg);
+  }
 
+
+  .textoSobre {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    height: 60vh;
+    width: 700px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    background-color:rgba(255, 224, 192, 0.8); 
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    margin-top: 100px;
+  }
+  
+  h3 {
+    flex: 1; /* Expand to fill available space */
+    margin: 20px; /* Adjust the margin as needed */
+    padding: 10px; /* Add padding */
+    font-size: 20px;
+    color: rgba(139, 69, 19, 1.0);
+    margin-top: 10px;
+    
+    border-radius: 5px;
+  }

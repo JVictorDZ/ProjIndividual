@@ -34,7 +34,7 @@
               <li><a href="cadastro.html">Cadastro</a></li>
             </div>
             <div>
-              <li><a href="#">Sobre</a></li>
+              <li><a href="#" onclick="scrollToSection('sobre')">Sobre</a></li>
             </div>
             <div>
               <li><a href="#">Noticias</a></li>
@@ -47,30 +47,32 @@
       </div>
     </div>
 
-    <div class="banner">
-      <div class="container">
-        <nav class="nav-links">
-          <ul>
-            <div>
-              <li><a href="index.html">Página Inicial</a></li>
-            </div>
-            <div>
-              <li><a href="login.html">Login</a></li>
-            </div>
-            <div>
-              <li><a href="cadastro.html">Cadastro</a></li>
-            </div>
-            <div>
-              <li><a href="#">Sobre</a></li>
-            </div>
+    
+    <section id="sobre">
+      
+      <h1 class="titulonum2">Minha Jornada e Reflexões Inspiradas por Life is Strange</h1>
+      <div class="banner">
+        <div class="container">
+          <div class="textoSobre">
+
+            <h3>Desde a infância, fui fascinado por videogames, influenciado pelos meus pais. Sempre buscava versões jogáveis de filmes e shows que assistia. Para mim, a melhor forma de mídia visual era aquela adaptada para videogame. Ao longo dos anos, joguei jogos com narrativas envolventes, que me fizeram refletir sobre a vida e moldaram meu desenvolvimento.
+            </h3>
+              <h3>
+                Um destes jogos que me marcaram por conta de sua narrativa, mas principalmente a reflexão que traz, foi Life is Strange. 
+                Life is Strange, um jogo marcante pela sua narrativa e reflexões provocativas. Controlamos Max, que após presenciar uma tragédia, descobre poderes de manipulação temporal. Apesar dos esforços para salvar sua amiga Chloe, os acidentes persistem. Isso leva a reflexões estoicas quanto ao poder sobre o tempo e a importância de lidar com adversidades ao invés de tentar mudar o passado.
+  
+              </h3>
             
-            <div>
-              <li><a href="#">Quiz</a></li>
-            </div>
-          </ul>
-        </nav>
+          </div>
+          
+          
+          
+          
+          
+   
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- <div class="social">
       <div class="container">
@@ -109,5 +111,15 @@
         <span class="version">v1.0.0</span>
       </div> -->
     </div>
+    <script>
+      function scrollToSection(sectionId) {
+        var section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    </script>
   </body>
 </html>
+
+
