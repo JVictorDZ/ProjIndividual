@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'YourFontName';
+  src: url('..//assets/imgs/WhatnotW00Regular.ttf') format('truetype'); 
+ 
+}
+
+@font-face {
+  font-family: 'Lis2';
+  src: url(..//assets/imgs/Dudu_Calligraphy.ttf);
+}
+
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'YourFontName';
+    background-color: black;
+  }
+
+  .navbar {
+    height: 100vh;
+    width: 250px;
+    background-color: #84474b; /* Cor de fundo da barra lateral */
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    
+  }
+
+  .brand {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .brand h2 {
+    color: #fff; /* Cor do texto do título */
+  }
+
+  .nav-links ul {
+    list-style: none;
+    padding: 0;
+    border: solid 2.5px black;
+    border-radius: 5px;
+    outline: 2px solid antiquewhite; 
+    background-color: rgba(180, 180, 180, 0.1);
+    font-size: x-large;
+    margin-right: 100px;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff; /* Cor do texto dos links */
+    text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    background-color: #444; /* Cor de fundo ao passar o mouse sobre os links */
+  }
+
+  .content {
+    margin-left: 250px; /* Deixe espaço para a barra lateral */
+    padding: 20px;
+  }
+
+  .banner {
+    height: 100vh;
+    background-image: url('../assets/imgs/6hhetyy8wcu81.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+section .banner {
+  background-image: url('..//assets/imgs/0c0b43cefc2cc9bddacaf51a73a3a3c0.jpg');
+ }
+
+
+
+
+
+
+  .banner p {
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    color: white;
+    text-align: center;
+  }
+
+  .banner p span {
+    font-weight: 800;
+  }
+
+  .titulo {
+    position: absolute;
+    top: 5%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: aliceblue;
+    z-index: 1; /* Ensure the titulo is above other elements */
+  }
+
+  .titulonum2 {
+    position: absolute;
+    top: 115%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    color: black;
+    z-index: 1; 
+    font-size: 50px;
+    margin-top: 0
+  }
+
+
+
+  
+  li img {
+    width: 50%;
+  }
+
+  section {
+    background-image: url(..//assets/imgs/life-is-strange-2-is-beautifully-boring_9dqy.jpg);
+  }
+
+
+  .textoSobre {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    height: 60vh;
+    width: 700px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    background-color:rgba(255, 224, 192, 0.8); 
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    margin-top: 100px;
+  }
+  
+  h3 {
+    flex: 1; /* Expand to fill available space */
+    margin: 20px; /* Adjust the margin as needed */
+    padding: 10px; /* Add padding */
+    font-size: 20px;
+    color: rgba(139, 69, 19, 1.0);
+    margin-top: 10px;
+    
+    border-radius: 5px;
+  }
