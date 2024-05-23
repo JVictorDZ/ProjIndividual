@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'YourFontName';
+  src: url('..//assets/imgs/WhatnotW00Regular.ttf') format('truetype'); 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'YourFontName';
+  background-color: #f4f4f4;
+  font-weight: bold;
+  background: linear-gradient(to left, #aed9e0, #ffffff);
+ 
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #a05d60;
+}
+
+.brand h2 {
+  margin: 0;
+  color: aliceblue;
+}
+
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 30px;
+  
+}
+
+.nav-links ul li {
+  display: inline;
+}
+
+.nav-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.nav-links ul li a:hover {
+  background-color: #555;
+}
+
+.quiz-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Changed to min-height */
+  background-image: url('../assets/imgs/6hhetyy8wcu81.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #333;
+}
+
+.titulo {
+  font-size: 100px;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 50px; /* Adjusted margin */
+}
+
+.quiz-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  max-width: 600px;
+}
+
+.quiz-container h1 {
+  text-align: center;
+  font-size: 36px;
+}
+
+#questions-container {
+  margin-top: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question h3 {
+  font-size: 24px;
+}
+
+.answers {
+  margin-top: 10px;
+}
+
+.answers input {
+  margin-right: 10px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #84474b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a05d60;
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+
+.destaque {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 40%; /* Set a width for the featured news article */
+  margin: 0 auto; /* Center the featured news article horizontally */
+}
+
+.destaque img {
+  width: 80%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.ultimas-noticias {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 30%;
+  margin: 10px;
+  margin-left: 20%;
+  margin-top: 100px;
+  justify-content: space-between;
+}
+
+.noticia {
+  text-align: center;
+}
+
+.noticia img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.noticia h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.noticia p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-left: 750px;
+
+}
+
+.noticia:hover {
+  transition: 10s;
+
+  height: 65vmin;
+  width: 120vmin;
+  
+}
+
+.container h1 {
+  font-size: 80px;
+  text-decoration: underline;
+  margin-left: 300px;
+}
+
+.container h2 {
+  margin-left: 600px;
+}
