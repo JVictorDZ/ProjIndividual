@@ -15,7 +15,7 @@
   .navbar {
     height: 100vh;
     width: 250px;
-    background-color: #84474b; /* Cor de fundo da barra lateral */
+    background-image: linear-gradient(#a05d60,#b46d70);
     position: fixed;
     top: 0;
     left: 0;
@@ -54,7 +54,9 @@
   }
 
   .nav-links a:hover {
-    background-color: #444; /* Cor de fundo ao passar o mouse sobre os links */
+    background-color: #444;
+    border-radius: 10px;
+
   }
 
   .content {

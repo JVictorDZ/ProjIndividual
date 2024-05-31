@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhos de Arcadia | Login</title>
+    <link rel="stylesheet" href="./css/estilo6.css">
+    <link rel="icon" href="./assets/icon/st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <style>
+        @font-face {
+            font-family: 'YourFontName';
+            src: url('../assets/imgs/WhatnotW00Regular.ttf') format('truetype'); 
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'YourFontName';
+            background-color: #f4c2c2;
+            font-weight: bold;  
+            background: linear-gradient(to right, #ffafbd, #ffc3a0, #ffedbc);
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background-image: linear-gradient(#a05d60,#b46d70);
+            border: solid #a05d60;
+        }
+
+        .brand h2 {
+            margin: 0;
+            color: aliceblue;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px;
+        }
+
+        .nav-links ul li {
+            display: inline;
+        }
+
+        .nav-links ul li a {
+            color: aliceblue;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 10px;
+        }
+
+        .nav-links ul li a:hover {
+            background-color: #555;
+            transform: translateX(10px);
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .locais {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .local {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 30%;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        
+
+        .ps4:hover {
+  background-image: linear-gradient(to right, #004a99, #00aaff);
+  transform: scale(1.1);
+}
+
+
+.xbox:hover {
+  background-image: linear-gradient(to right, #107c10, #52c652);
+  transform: scale(1.1);
+}
+
+
+.steam:hover {
+  background-image: linear-gradient(to right, #00703c, #72c3dc);
+  transform: scale(1.1);
+
+}
+
+.ps4 {
+  background-image: linear-gradient(to right, #004a99, #00aaff);
+}
+
+.xbox {
+  background-image: linear-gradient(to right, #107c10, #52c652);
+}
+
+.steam {
+  background-image: linear-gradient(to right, #00703c, #72c3dc);}
+
+        .imagem-plataforma {
+            max-width: 100px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .imagem-plataforma:hover {
+            transform: scale(1.1);
+        }
+
+        .texto-plataforma {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s;
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #333;
+        }
+
+        .mostrar-texto {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="brand">
+            <h2>Caminhos de Arcadia</h2>
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Onde Jogar Life is Strange?<img width="" src="assets/controller.png" alt=""> </h1>
+            <section class="locais">
+                <div class="local steam">
+                    <h2>Steam</h2>
+                    <img src="assets/steam.png" alt="Steam" class="imagem-plataforma" onclick="alternarTexto('steam-texto')">
+                    <p class="texto-plataforma" id="steam-texto">Life is Strange está disponível para compra e download na plataforma Steam. Você pode adquirir o jogo diretamente na loja da Steam e jogá-lo no seu computador.</p>
+                </div>
+                <div class="local ps4">
+                    <h2>PlayStation Store</h2>
+                    <img src="assets/ps.png" alt="PlayStation" class="imagem-plataforma" onclick="alternarTexto('playstation-texto')">
+                    <p class="texto-plataforma" id="playstation-texto">Life is Strange também está disponível para PlayStation. Você pode comprar o jogo na PlayStation Store e jogá-lo no seu PlayStation 4 ou PlayStation 5.</p>
+                </div>
+                <div class="local xbox">
+                    <h2>Xbox Store</h2>
+                    <img src="assets/xbox.png" alt="Xbox" class="imagem-plataforma" onclick="alternarTexto('xbox-texto')">
+                    <p class="texto-plataforma" id="xbox-texto">Para os jogadores de Xbox, Life is Strange está disponível na Xbox Store. Compre o jogo na loja online e jogue-o no seu Xbox One ou Xbox Series X/S.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function alternarTexto(textoId) {
+            var elementoTexto = document.getElementById(textoId);
+            elementoTexto.classList.toggle("mostrar-texto");
+        }
+    </script>
+</body>
+</html>

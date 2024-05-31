@@ -1,19 +1,15 @@
-// quizController.js
+const rankingModel = require("../models/rankingModel");
 
-const quizModel = require("../models/quizModel");
-
-async function submitQuiz(req, res) {
-  try {
-    const { idUsuario, quizId, score } = req.body;
-
-    // Chame a função do modelo para inserir a pontuação do quiz
-    const result = await quizModel.submitQuiz(idUsuario, quizId, score);
-
-    res.status(201).json(result);
-  } catch (error) {
-    console.error("Erro ao inserir pontuação do quiz:", error);
-    res.status(500).json({ error: "Erro ao inserir pontuação do quiz." });
-  }
+async function getRankings(req, res) {
+    try {
+        const top3 = await rankingModel.top3Melhores();
+        const top10 = await rankingModel.top10Melhores();
+        
+        res.json({ top3, top10 });
+    } catch (error) {
+        console.error("Error while fetching rankings:", error);
+        res.status(500).json({ error: "Erro ao buscar rankings." });
+    }
 }
 
-module.exports = { submitQuiz };
+module.exports = { getRankings };

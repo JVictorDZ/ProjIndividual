@@ -10,7 +10,7 @@ const submitQuiz = async (req, res) => {
     // Inserir os dados na tabela Tentativa
     const query = `
       INSERT INTO Tentativa (fkUsuario, fkQuiz, pontos) 
-      VALUES (${idUsuario}, ?, ${score})
+      VALUES (${idUsuario}, 1, ${score})
     `;
     await db.query(query, [idUsuario, quizId, score]);
 

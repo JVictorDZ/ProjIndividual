@@ -14,13 +14,14 @@
     margin: 0;
     padding: 0;
     font-family: 'YourFontName';
-    background-color: black;
+    background-image: url(..//assets/imgs/6hhetyy8wcu81.jpg);
+    
   }
 
   .navbar {
     height: 100vh;
     width: 250px;
-    background-color: #84474b; /* Cor de fundo da barra lateral */
+    background-color: #84474b; 
     position: fixed;
     top: 0;
     left: 0;
@@ -35,7 +36,7 @@
   }
 
   .brand h2 {
-    color: #fff; /* Cor do texto do título */
+    color: #fff; 
   }
 
   .nav-links ul {
@@ -56,16 +57,18 @@
   .nav-links a {
     display: block;
     padding: 10px 20px;
-    color: #fff; /* Cor do texto dos links */
+    color: #fff; 
     text-decoration: none;
+    font-size: 30px;
   }
 
   .nav-links a:hover {
-    background-color: #444; /* Cor de fundo ao passar o mouse sobre os links */
+    background-color: #444; 
+    border-radius: 3px;
   }
 
   .content {
-    margin-left: 250px; /* Deixe espaço para a barra lateral */
+    margin-left: 250px; 
     padding: 20px;
   }
 
@@ -108,18 +111,28 @@ section .banner {
     transform: translate(-50%, -50%);
     font-size: 50px;
     color: aliceblue;
-    z-index: 1; /* Ensure the titulo is above other elements */
+    z-index: 1; 
+    background-color: #523032;
+    padding: 10px;
+    border-radius: 10px;
   }
 
   .titulonum2 {
     position: absolute;
-    top: 115%;
-    left: 48%;
+    top: 107%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    color: black;
+    width: 79%;
+    color: #ffffff;
     z-index: 1; 
     font-size: 50px;
-    margin-top: 0
+  
+    margin-bottom: 0;
+    background-color: #523032;
+    padding: 10px;
+    border-radius: 5px;
+   
+   
   }
 
 
@@ -145,6 +158,8 @@ section .banner {
     background-color:rgba(255, 224, 192, 0.8); 
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
     margin-top: 100px;
+    padding: 10px;
+    padding-top: 20px;
   }
   
   h3 {
@@ -156,4 +171,11 @@ section .banner {
     margin-top: 10px;
     
     border-radius: 5px;
+  }
+
+  a:hover {
+    transition: 0.07s ease-in-out;
+    font-size: xx-large;
+    background: linear-gradient(to right, #ff7e5f, #feb47b); 
+
   }
