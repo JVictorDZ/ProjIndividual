@@ -1,185 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caminhos de Arcadia | Quiz</title>
-    <link rel="stylesheet" href="css/estilo5.css" />
-   
-    <link
-      rel="icon"
-      href="./assets/icon/st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png"
-    />
-  </head>
-  <body>
-    <body class="banner">
-      <div class="navbar">
-        <div class="brand">
-          <h2>Caminhos de Arcadia</h2>
-        </div>
-        <nav class="nav-links">
-          <ul>
-            <li><a href="index.html">Página Inicial</a></li>
-            <li><a href="dashboard/dashboard.html">Ranking Do Quiz</a></li>
-            <li><a href="noticias.html">Mais Sobre Life is Strange</a></li>
-          </ul>
-        </nav>
-      </div>
-      
-    <div class="quiz-page">
-      <h1 class="titulo">Quiz Tempestuoso<img src="assets/tornado.png" alt="" width="100px"></h1>
-      <div class="quiz-container">
-        <form id="quiz-form">
-          <div id="questions-container"></div>
-          <button type="submit">Enviar Respostas</button>
-        </form>
-        <div id="result"></div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caminhos de Arcadia | Quiz</title>
+  <link rel="stylesheet" href="css/estilo5.css">
+  <link rel="icon" href="./assets/icon/st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png">
+</head>
+<body>
+  <div class="navbar">
+    <div class="brand">
+      <h2>Caminhos de Arcadia</h2>
     </div>
+    <nav class="nav-links">
+      <ul>
+        <li><a href="index.html">Página Inicial</a></li>
+        <li><a href="dashboard/dashboard.html">Ranking Do Quiz</a></li>
+        <li><a href="noticias.html">Mais Sobre Life is Strange</a></li>
+        <li><a class="esquisito" onclick="deslogar()">Deslogar-se</a></li>
+      </ul>
+    </nav>
+  </div>
+      
+  <div class="quiz-page">
+    <h1 class="titulo">Quiz Tempestuoso<img src="assets/tornado.png" alt="" width="100px"></h1>
+    <div class="quiz-container">
+      <form id="quiz-form">
+        <div id="questions-container"></div>
+        <button type="submit">Enviar Respostas</button>
+      </form>
+      <div id="result"></div>
+    </div>
+  </div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const questions = [
-          {
-            id: 1,
-            text: 'Quem é a protagonista principal de "Life is Strange"?',
-            answers: [
-              { id: 1, text: "Max Caulfield", correct: true },
-              { id: 2, text: "Chloe Price", correct: false },
-              { id: 3, text: "Rachel Amber", correct: false },
-              { id: 4, text: "Nathan Prescott", correct: false },
-            ],
-          },
-          {
-            id: 2,
-            text: 'Qual é o nome da cidade fictícia onde "Life is Strange" se passa?',
-            answers: [
-              { id: 5, text: "Arcadia Bay", correct: true },
-              { id: 6, text: "Blackwell Academy", correct: false },
-              { id: 7, text: "Seattle", correct: false },
-              { id: 8, text: "San Francisco", correct: false },
-            ],
-          },
-          {
-            id: 3,
-            text: "Qual habilidade sobrenatural a personagem Max Caulfield possui no jogo?",
-            answers: [
-              { id: 9, text: "Manipulação do tempo", correct: true },
-              { id: 10, text: "Telecinese", correct: false },
-              { id: 11, text: "Teletransporte", correct: false },
-              { id: 12, text: "Leitura da mente", correct: false },
-            ],
-          },
-          {
-            id: 4,
-            text: 'Quem é a melhor amiga de Max Caulfield em "Life is Strange"?',
-            answers: [
-              { id: 13, text: "Chloe Price", correct: true },
-              { id: 14, text: "Rachel Amber", correct: false },
-              { id: 15, text: "Kate Marsh", correct: false },
-              { id: 16, text: "Victoria Chase", correct: false },
-            ],
-          },
-          {
-            id: 5,
-            text: "Qual é o nome da prestigiada academia frequentada por Max Caulfield no jogo?",
-            answers: [
-              { id: 17, text: "Blackwell Academy", correct: true },
-              { id: 18, text: "Arcadia Bay High", correct: false },
-              { id: 19, text: "Prescott Academy", correct: false },
-              { id: 20, text: "Jefferson Academy", correct: false },
-            ],
-          },
-          {
-            id: 6,
-            text: "Qual música icônica de Syd Matters serve como tema principal do jogo?",
-            answers: [
-              { id: 21, text: "Obstacles", correct: true },
-              { id: 22, text: "Golden Hour", correct: false },
-              { id: 23, text: "To All of You", correct: false },
-              { id: 24, text: "The Sense of Me", correct: false },
-            ],
-          },
-          {
-            id: 7,
-            text: 'Qual é o tema central de "Life is Strange"?',
-            answers: [
-              { id: 25, text: "Amizade", correct: true },
-              { id: 26, text: "Aventura", correct: false },
-              { id: 27, text: "Viagem no Tempo", correct: false },
-              { id: 28, text: "Amor", correct: false },
-            ],
-          },
-        ];
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const questions = [
+  {
+    id: 1,
+    text: 'Quem é a protagonista principal de "Life is Strange"?',
+    answers: [
+      { id: 1, text: "Max Caulfield", correct: true },
+      { id: 2, text: "Chloe Price", correct: false },
+      { id: 3, text: "Rachel Amber", correct: false },
+      { id: 4, text: "Nathan Prescott", correct: false },
+    ],
+  },
+  {
+    id: 2,
+    text: 'Qual é o nome da cidade fictícia onde "Life is Strange" se passa?',
+    answers: [
+      { id: 5, text: "Arcadia Bay", correct: true },
+      { id: 6, text: "Blackwell Academy", correct: false },
+      { id: 7, text: "Seattle", correct: false },
+      { id: 8, text: "San Francisco", correct: false },
+    ],
+  },
+  {
+    id: 3,
+    text: "Qual habilidade sobrenatural a personagem Max Caulfield possui no jogo?",
+    answers: [
+      { id: 9, text: "Manipulação do tempo", correct: true },
+      { id: 10, text: "Telecinese", correct: false },
+      { id: 11, text: "Teletransporte", correct: false },
+      { id: 12, text: "Leitura da mente", correct: false },
+    ],
+  },
+  {
+    id: 4,
+    text: 'Quem é a melhor amiga de Max Caulfield em "Life is Strange"?',
+    answers: [
+      { id: 13, text: "Chloe Price", correct: true },
+      { id: 14, text: "Rachel Amber", correct: false },
+      { id: 15, text: "Kate Marsh", correct: false },
+      { id: 16, text: "Victoria Chase", correct: false },
+    ],
+  },
+  {
+    id: 5,
+    text: "Qual é o nome da prestigiada academia frequentada por Max Caulfield no jogo?",
+    answers: [
+      { id: 17, text: "Blackwell Academy", correct: true },
+      { id: 18, text: "Arcadia Bay High", correct: false },
+      { id: 19, text: "Prescott Academy", correct: false },
+      { id: 20, text: "Jefferson Academy", correct: false },
+    ],
+  },
+  {
+    id: 6,
+    text: "Qual música icônica de Syd Matters serve como tema principal do jogo?",
+    answers: [
+      { id: 21, text: "Obstacles", correct: true },
+      { id: 22, text: "Golden Hour", correct: false },
+      { id: 23, text: "To All of You", correct: false },
+      { id: 24, text: "The Sense of Me", correct: false },
+    ],
+  },
+  {
+    id: 7,
+    text: 'Qual é o tema central de "Life is Strange"?',
+    answers: [
+      { id: 25, text: "Amizade", correct: true },
+      { id: 26, text: "Aventura", correct: false },
+      { id: 27, text: "Viagem no Tempo", correct: false },
+      { id: 28, text: "Amor", correct: false },
+    ],
+  },
+  {
+    id: 8,
+    text: 'Quem é o principal antagonista em "Life is Strange"?',
+    answers: [
+      { id: 29, text: "Jefferson", correct: true },
+      { id: 30, text: "Nathan Prescott", correct: false },
+      { id: 31, text: "Frank Bowers", correct: false },
+      { id: 32, text: "Mark Jefferson", correct: false },
+    ],
+  },
+  {
+    id: 9,
+    text: 'Qual é o nome do professor de fotografia na Academia Blackwell?',
+    answers: [
+      { id: 33, text: "Mark Jefferson", correct: true },
+      { id: 34, text: "David Madsen", correct: false },
+      { id: 35, text: "Warren Graham", correct: false },
+      { id: 36, text: "Ray Wells", correct: false },
+    ],
+  },
+  {
+    id: 10,
+    text: 'Qual é o nome do serial killer em "Life is Strange"?',
+    answers: [
+      { id: 37, text: "The Dark Room Killer", correct: true },
+      { id: 38, text: "The Prescott Predator", correct: false },
+      { id: 39, text: "The Arcadia Bay Slayer", correct: false },
+      { id: 40, text: "The Blackwell Butcher", correct: false },
+    ],
+  },
+  {
+    id: 11,
+    text: 'Qual é o nome do bar onde Chloe Price trabalha?',
+    answers: [
+      { id: 41, text: "Two Whales Diner", correct: true },
+      { id: 42, text: "Blackwell Cafe", correct: false },
+      { id: 43, text: "Arcadia Bay Bistro", correct: false },
+      { id: 44, text: "Chloe's Hangout", correct: false },
+    ],
+  },
+  {
+    id: 12,
+    text: 'Qual é o nome do cachorro de Chloe Price?',
+    answers: [
+      { id: 45, text: "Pompidou", correct: true },
+      { id: 46, text: "Max", correct: false },
+      { id: 47, text: "Frank", correct: false },
+      { id: 48, text: "Samuel", correct: false },
+    ],
+  },
+  {
+    id: 13,
+    text: 'Qual é a relação entre Max Caulfield e Chloe Price?',
+    answers: [
+      { id: 49, text: "Amigas de infância", correct: true },
+      { id: 50, text: "Irmãs", correct: false },
+      { id: 51, text: "Colegas de escola", correct: false },
+      { id: 52, text: "Mãe e filha", correct: false },
+    ],
+  },
+  {
+    id: 14,
+    text: 'Qual é o último episódio de "Life is Strange"?',
+    answers: [
+      { id: 53, text: "Polarized", correct: true },
+      { id: 54, text: "Chaos Theory", correct: false },
+      { id: 55, text: "Dark Room", correct: false },
+      { id: 56, text: "Hell is Empty", correct: false },
+    ],
+  },
+];
 
-        const questionsContainer = document.getElementById(
-          "questions-container"
-        );
+
+      const questionsContainer = document.getElementById("questions-container");
+      const quizForm = document.getElementById("quiz-form");
+      const resultContainer = document.getElementById("result");
+
+      // Shuffle the questions array randomly
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      shuffleArray(questions);
+
+      // Display 7 random questions
+      for (let i = 0; i < Math.min(7, questions.length); i++) {
+        const question = questions[i];
+        let questionHTML = `<div class="question"><h3>${question.text}</h3>`;
+        question.answers.forEach((answer) => {
+          questionHTML += `
+            <div>
+              <input type="radio" name="question-${question.id}" value="${answer.id}" />
+              <label>${answer.text}</label>
+            </div>
+          `;
+        });
+        questionHTML += `</div>`;
+        questionsContainer.innerHTML += questionHTML;
+      }
+
+      quizForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        let score = 0;
 
         questions.forEach((question) => {
-          var questionHTML = `<div class="question"><h3>${question.text}</h3>`;
-          question.answers.forEach((answer) => {
-            questionHTML += `
-        <div>
-          <input type="radio" name="question-${question.id}" value="${answer.id}" />
-          <label>${answer.text}</label>
-        </div>
-      `;
-          });
-          questionHTML += `</div>`;
-          questionsContainer.innerHTML += questionHTML;
+          const selectedAnswer = document.querySelector(`input[name="question-${question.id}"]:checked`);
+          if (selectedAnswer) {
+            const selectedAnswerId = parseInt(selectedAnswer.value);
+            for (let i = 0; i < question.answers.length; i++) {
+              if (question.answers[i].id === selectedAnswerId && question.answers[i].correct) {
+                score++;
+                break;
+              }
+            }
+          }
         });
 
-        document
-          .getElementById("quiz-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
+        const totalQuestions = Math.min(7, questions.length);
+        const resultText = `Sua pontuação: ${score} de ${totalQuestions}`;
+        resultContainer.textContent = resultText;
 
-            var score = 0;
-            questions.forEach((question) => {
-              const selectedAnswer = document.querySelector(
-                `input[name="question-${question.id}"]:checked`
-              );
-              if (selectedAnswer) {
-                const answer = question.answers.find(
-                  (ans) => ans.id == selectedAnswer.value
-                );
-                if (answer && answer.correct) {
-                  score++;
-                }
-              }
-            });
-
-            const totalQuestions = questions.length;
-            const resultText = `Sua pontuação: ${score} de ${totalQuestions}`;
-            document.getElementById("result").textContent = resultText;
-
-            // Enviar a pontuação para o servidor
-            fetch("/quiz/submit", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                score,
-                idUsuario: sessionStorage.ID_USUARIO,
-              }), // Envie a pontuação para o servidor
-            })
-              .then((response) => {
-                if (!response.ok) {
-                  throw new Error("Erro ao enviar a pontuação");
-                }
-                return response.json();
-              })
-              .then((data) => {
-                console.log(data); 
-              })
-              .catch((error) => {
-                console.error("Erro ao enviar a pontuação:", error);
-              });
-          });
+        // Send the score to the server (you can add your own URL and fetch options)
+        fetch("/quiz/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            score,
+            idUsuario: sessionStorage.ID_USUARIO,
+          }), // Send the score to the server
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Erro ao enviar a pontuação");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data); 
+        })
+        .catch((error) => {
+          console.error("Erro ao enviar a pontuação:", error);
+        });
       });
-    </script>
-  </body>
+
+      function deslogar() {
+        sessionStorage.clear();
+        window.location = 'login.html';
+      }
+    });
+  </script>
+</body>
 </html>

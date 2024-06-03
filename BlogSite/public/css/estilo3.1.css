@@ -166,3 +166,6 @@ a:hover {
 
 }
 
+a {
+  cursor: pointer;
+}

@@ -22,7 +22,7 @@
           <ul>
               <li><a href="index.html">Página Inicial</a></li>
               <li><a href="login.html">Login</a></li>
-              <li><a href="quiz.html">Quiz</a></li>
+              <li><a onclick="entrarQuiz()">Quiz</a></li>
               <li><a href="game.html">Onde jogar?</a></li>
           </ul>
       </nav>
@@ -36,8 +36,8 @@
             <h1>Bem Vindo!</h1>
             <input type="text" placeholder="nome" id="nome_input">
             <input type="text" placeholder="email" id="email_input">
-            <input type="text" placeholder="senha" id="senha_input">
-            <input type="text" placeholder="confirme a senha" id="confirmacao_senha_input">
+            <input type="password" placeholder="senha" id="senha_input">
+            <input type="password" placeholder="confirme a senha" id="confirmacao_senha_input">
             <button onclick="cadastrar()">Cadastrar-se</button>
           </div>
         </div>
@@ -114,6 +114,15 @@
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
+
+  function entrarQuiz(){
+        if(sessionStorage.ID_USUARIO == null){
+            alert('Você cadastrar sua conta antes!')
+            
+        }else {
+            window.location = 'quiz.html'
+        }
+    }
 </script>
 
 

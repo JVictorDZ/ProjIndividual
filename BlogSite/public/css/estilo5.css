@@ -162,3 +162,7 @@ a:hover {
   font-size: large;
   background: linear-gradient(to right, #ff7e5f, #feb47b);
 }
+
+.esquisito {
+  cursor: pointer;
+}

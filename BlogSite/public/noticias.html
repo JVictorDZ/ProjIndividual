@@ -19,7 +19,7 @@
                 <li><a href="index.html">Página Inicial</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
+                <li><a onclick="entrarQuiz()">Quiz</a></li>
                 <li><a href="game.html">Onde jogar?</a></li>
 
             </ul>
@@ -142,6 +142,17 @@
     </main>
 </body>
 </html>
+
+<script>
+    function entrarQuiz(){
+        if(sessionStorage.ID_USUARIO == null){
+            alert('Você precisa logar em uma conta antes!')
+            
+        }else {
+            window.location = 'quiz.html'
+        }
+    }
+</script>
 
 
 

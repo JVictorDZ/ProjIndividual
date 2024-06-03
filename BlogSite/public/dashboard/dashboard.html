@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Rankings</title>
+    <title>Dashboard | Rankings</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css">
     <script src="../js/sessao.js"></script>
@@ -32,8 +32,10 @@
                     <ul>
                         <li><a href="http://localhost:3333/index.html">Página Inicial</a></li>
                         <li><a href="http://localhost:3333/quiz.html">Quiz</a></li>
-                        <li><a href="http://localhost:3333/noticias.html">Explore</a></li>
+                        <li><a href="http://localhost:3333/noticias.html">Mais Sobre Life is Strange</a></li>
                         <li><a href="http://localhost:3333/game.html">Onde jogar?</a></li>
+                        <li><a class="esquisito" onclick="deslogar()">Deslogar-se</a></li>
+
         
                     </ul>
                 </nav>
@@ -48,9 +50,9 @@
         </div>
         <div class="dash">
             <div id="ranking">
-                <h2>Top 3 Performers</h2>
+                <h2>Top 3 Melhores</h2>
                 <canvas id="top3Chart"></canvas>
-                <h2>Top 10 Performers</h2>
+                <h2>Top 10 Melhores</h2>
                 <canvas id="top10Chart"></canvas>   
             </div>
         </div>
@@ -132,6 +134,12 @@
                 .catch(error => console.error('Erro ao carregar pontos do usuário:', error));
         }
     }
+
+
+    function deslogar(){
+        sessionStorage.clear()
+        window.location = 'login.html'
+      }
     </script>
 </body>
 
