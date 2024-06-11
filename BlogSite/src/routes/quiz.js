@@ -26,4 +26,6 @@ const submitQuiz = async (req, res) => {
 // Rota para lidar com a submissão do quiz
 router.post("/submit", submitQuiz);
 
+router.post("/")
+
 module.exports = router;

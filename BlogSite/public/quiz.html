@@ -18,6 +18,7 @@
         <li><a href="index.html">Página Inicial</a></li>
         <li><a href="dashboard/dashboard.html">Ranking Do Quiz</a></li>
         <li><a href="noticias.html">Mais Sobre Life is Strange</a></li>
+        <li style="color: aliceblue;">|</li>
         <li><a class="esquisito" onclick="deslogar()">Deslogar-se</a></li>
       </ul>
     </nav>
@@ -29,6 +30,7 @@
       <form id="quiz-form">
         <div id="questions-container"></div>
         <button type="submit">Enviar Respostas</button>
+        <button onclick="tryagain()">Ver Pontuação</button>
       </form>
       <div id="result"></div>
     </div>
@@ -111,10 +113,10 @@
     id: 8,
     text: 'Quem é o principal antagonista em "Life is Strange"?',
     answers: [
-      { id: 29, text: "Jefferson", correct: true },
+      { id: 29, text: "Mark Jefferson", correct: true },
       { id: 30, text: "Nathan Prescott", correct: false },
       { id: 31, text: "Frank Bowers", correct: false },
-      { id: 32, text: "Mark Jefferson", correct: false },
+      { id: 32, text: "Thomas Jefferson", correct: false },
     ],
   },
   {
@@ -139,17 +141,17 @@
   },
   {
     id: 11,
-    text: 'Qual é o nome do bar onde Chloe Price trabalha?',
+    text: 'Qual é o nome da banda favorita de Chloe Price?',
     answers: [
-      { id: 41, text: "Two Whales Diner", correct: true },
+      { id: 41, text: "FireWalk", correct: true },
       { id: 42, text: "Blackwell Cafe", correct: false },
-      { id: 43, text: "Arcadia Bay Bistro", correct: false },
-      { id: 44, text: "Chloe's Hangout", correct: false },
+      { id: 43, text: "Arcadia Bay Festival", correct: false },
+      { id: 44, text: "Chalé das alturas", correct: false },
     ],
   },
   {
     id: 12,
-    text: 'Qual é o nome do cachorro de Chloe Price?',
+    text: 'Qual é o nome do cachorro de Frank Bowers?',
     answers: [
       { id: 45, text: "Pompidou", correct: true },
       { id: 46, text: "Max", correct: false },
@@ -184,7 +186,6 @@
       const quizForm = document.getElementById("quiz-form");
       const resultContainer = document.getElementById("result");
 
-      // Shuffle the questions array randomly
       function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -195,7 +196,7 @@
 
       shuffleArray(questions);
 
-      // Display 7 random questions
+     
       for (let i = 0; i < Math.min(7, questions.length); i++) {
         const question = questions[i];
         let questionHTML = `<div class="question"><h3>${question.text}</h3>`;
@@ -233,7 +234,6 @@
         const resultText = `Sua pontuação: ${score} de ${totalQuestions}`;
         resultContainer.textContent = resultText;
 
-        // Send the score to the server (you can add your own URL and fetch options)
         fetch("/quiz/submit", {
           method: "POST",
           headers: {
@@ -242,7 +242,7 @@
           body: JSON.stringify({
             score,
             idUsuario: sessionStorage.ID_USUARIO,
-          }), // Send the score to the server
+          }), 
         })
         .then((response) => {
           if (!response.ok) {
@@ -258,11 +258,17 @@
         });
       });
 
-      function deslogar() {
-        sessionStorage.clear();
-        window.location = 'login.html';
-      }
     });
+    function deslogar() {
+      sessionStorage.clear();
+      window.location = 'login.html';
+    }
+
+    function tryagain(){
+
+      window.location = 'http://localhost:3333/dashboard/dashboard.html';
+
+    }
   </script>
 </body>
 </html>

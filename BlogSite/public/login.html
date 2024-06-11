@@ -21,9 +21,10 @@
       <nav class="nav-links">
           <ul>  
               <li><a href="index.html">Página Inicial</a></li>
-              <li><a href="cadastro.html">Cadastro</a></li>
               <li><a onclick="entrarQuiz()">Quiz</a></li>
               <li><a href="game.html">Onde jogar?</a></li>
+              <li>|</li>
+              <li><a href="cadastro.html">Cadastro</a></li>
           </ul>
       </nav>
     </header>
@@ -38,10 +39,10 @@
             <input type="password" placeholder="senha" id="senha_input">
             <button onclick="entrar()">Entrar</button>
           </div>
+        <div id="cardErro">
+          <div id="mensagem_erro"></div>
         </div>
-    </div>
-    <div id="cardErro">
-      <div id="mensagem_erro"></div>
+        </div>
     </div>
     <div id="div_aguardar"></div>
   </body>
@@ -56,7 +57,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Todos os campos estão em branco!";
             finalizarAguardar();
             return false;
         }
@@ -91,6 +92,7 @@
         });
 
     } else {
+        mensagem_erro.innerHTML = 'Houve um erro ao realizar o login!'
         console.log("Houve um erro ao tentar realizar o login!");
         resposta.text().then(texto => {
             console.error(texto);

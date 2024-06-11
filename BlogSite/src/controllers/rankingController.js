@@ -6,8 +6,8 @@ async function getRankings(req, res) {
         const top10 = await rankingModel.top10Melhores();
         res.json({ top3, top10 });
     } catch (error) {
-        console.error("Error while fetching rankings:", error);
-        res.status(500).json({ error: "Error while fetching rankings." });
+        console.error("Ocorreu erro no fetch dos rankings:", error);
+        res.status(500).json({ error: "Ocorreu erro no fetch do ranking." });
     }
 }
 
@@ -18,9 +18,22 @@ async function getUserPoints(req, res) {
         const lastAttemptPoints = await rankingModel.getUserLastAttemptPoints(userId);
         res.json({ maxPoints, lastAttemptPoints });
     } catch (error) {
-        console.error("Error while fetching user points:", error);
-        res.status(500).json({ error: "Error while fetching user points." });
+        console.error("Ocorreu erro no fetch dos pontos:", error);
+        res.status(500).json({ error: "Ocorreu erro no fetch dos pontos." });
+    }
+}
+async function getUserPointsHistory(req, res) {
+    try {
+        const userId = req.params.userId;
+        const pointsHistory = await rankingModel.getUserPointsHistory(userId);
+        res.json(pointsHistory);
+    } catch (error) {
+        console.error("Ocorreu erro no fetch do histórico de pontos:", error);
+        res.status(500).json({ error: "Ocorreu erro no fetch do histórico de pontos." });
     }
 }
 
-module.exports = { getRankings, getUserPoints };
+
+module.exports = { getRankings, getUserPoints, getUserPointsHistory };
+
+

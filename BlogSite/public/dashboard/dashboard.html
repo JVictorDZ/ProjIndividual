@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,9 +34,8 @@
                         <li><a href="http://localhost:3333/quiz.html">Quiz</a></li>
                         <li><a href="http://localhost:3333/noticias.html">Mais Sobre Life is Strange</a></li>
                         <li><a href="http://localhost:3333/game.html">Onde jogar?</a></li>
+                        <li>|</li>
                         <li><a class="esquisito" onclick="deslogar()">Deslogar-se</a></li>
-
-        
                     </ul>
                 </nav>
             </header>
@@ -45,29 +44,38 @@
             </div>
         </div>
         <div class="user-points">
-            <h4>Pontuação mais alta: <span id="maxPoints">Carregando...</span></h4>
-            <h4>Última pontuação: <span id="lastAttemptPoints">Carregando...</span></h4>
+            <h4>Sua pontuação mais alta: <span id="maxPoints">Carregando...</span></h4>
+            <h4>Sua última pontuação: <span id="lastAttemptPoints">Carregando...</span></h4>
+            
         </div>
+
+       
+
         <div class="dash">
+            <div class="user-line-chart" id="ranking">
+                <h2>Seu gráfico de pontuação</h2>
+                <canvas id="userLineChart"></canvas>
+            </div>
             <div id="ranking">
-                <h2>Top 3 Melhores</h2>
+                <h2>Top 3 Melhores do servidor  <img class="img1" src="../assets/iluStrange2.png" alt="" width="60px" height="100px"> </h2>
                 <canvas id="top3Chart"></canvas>
-                <h2>Top 10 Melhores</h2>
+                <h2>Top 10 Melhores do servidor <img class="img2" src="../assets/iluStrange2.png" alt="" width="60px" height="100px"></h2>
                 <canvas id="top10Chart"></canvas>   
             </div>
+            
         </div>
+       
     </div>
-    
 
     <script>
-        document.getElementById('b_usuario').innerHTML = sessionStorage.NOME_USUARIO;
-
-        document.getElementById('b_usuario').innerHTML = sessionStorage.NOME_USUARIO;
+        document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('b_usuario').innerHTML = sessionStorage.NOME_USUARIO;
 
     window.onload = function () {
         fetch('/ranking/getRankings')
             .then(response => response.json())
             .then(data => {
+                console.log('Ranking data:', data); 
                 const top3Names = data.top3.map(user => user.nome);
                 const top3Points = data.top3.map(user => user.pontos);
                 const top10Names = data.top10.map(user => user.nome);
@@ -95,11 +103,13 @@
                     data: {
                         labels: top3Names,
                         datasets: [{
-                            label: 'Points',
+                            label: 'Pontuação',
                             data: top3Points,
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1
+                            backgroundColor:  'rgba(128, 0, 128, 1)', // Fundo roxo claro
+                            borderColor: 'rgba(225, 47, 255, 0.5)', // Bordas roxas mais escuras
+                            borderWidth: 1,
+                            borderRadius: 7,
+                            borderWidth: 5
                         }]
                     },
                     options: chartOptions
@@ -110,11 +120,13 @@
                     data: {
                         labels: top10Names,
                         datasets: [{
-                            label: 'Points',
+                            label: 'Pontuação',
                             data: top10Points,
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
                             borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
+                            borderWidth: 1,
+                            borderRadius: 7,
+                            borderWidth: 5
                         }]
                     },
                     options: chartOptions
@@ -128,20 +140,64 @@
             fetch(`/ranking/getUserPoints/${userId}`)
                 .then(response => response.json())
                 .then(data => {
+                    console.log('User points data:', data); 
                     document.getElementById('maxPoints').textContent = data.maxPoints.maxPoints;
                     document.getElementById('lastAttemptPoints').textContent = data.lastAttemptPoints.pontos;
+
+                    fetch(`/ranking/getUserPointsHistory/${userId}`)
+                        .then(response => response.json())
+                        .then(historyData => {
+                            console.log('Pontos do usuario sla:', historyData); 
+                            const attemptDates = historyData.map(attempt => new Date(attempt.data).toLocaleDateString());
+                            const attemptPoints = historyData.map(attempt => attempt.pontos);
+
+                            const lineCtx = document.getElementById('userLineChart').getContext('2d');
+
+                            new Chart(lineCtx, {
+    type: 'line',
+    data: {
+        labels: attemptDates,
+        datasets: [{
+            label: 'Pontuação ao longo do tempo',
+            data: attemptPoints,
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            borderRadius: 10,
+            tension: 0.5,
+            borderWidth: 5
+        }]
+    },
+    options: {
+        scales: {
+            x: {
+                ticks: { color: 'white' }
+            },
+            y: {
+                ticks: { color: 'white' }
+            }
+        },
+        plugins: {
+            legend: { labels: { color: 'white' } }
+        }
+    }
+});
+
+                        })
+                        .catch(error => console.error('Erro ao carregar histórico de pontos do usuário:', error));
                 })
                 .catch(error => console.error('Erro ao carregar pontos do usuário:', error));
         }
     }
 
+    });
+        function deslogar() {
+            sessionStorage.clear();
+            window.location = 'http://localhost:3333/login.html'
+          
+        }
 
-    function deslogar(){
-        sessionStorage.clear()
-        window.location = 'login.html'
-      }
     </script>
 </body>
 
 </html>
-]

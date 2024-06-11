@@ -6,4 +6,11 @@ router.get("/getRankings", function (req, res) {
     rankingController.getRankings(req, res);
 });
 
+router.get('/ranking/getUserPoints/:userId', rankingController.getUserPoints);
+
+router.get('/getUserPointsHistory/:userId', rankingController.getUserPointsHistory);
+
+
+
+
 module.exports = router;

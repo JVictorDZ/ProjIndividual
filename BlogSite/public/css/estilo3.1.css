@@ -169,3 +169,8 @@ a:hover {
 a {
   cursor: pointer;
 }
+
+#cardErro {
+  margin-left: 55px;
+  font-weight: bold;
+}

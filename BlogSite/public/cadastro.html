@@ -21,9 +21,10 @@
       <nav class="nav-links">
           <ul>
               <li><a href="index.html">Página Inicial</a></li>
-              <li><a href="login.html">Login</a></li>
               <li><a onclick="entrarQuiz()">Quiz</a></li>
               <li><a href="game.html">Onde jogar?</a></li>
+              <li>|</li>
+              <li><a href="login.html">Login</a></li>
           </ul>
       </nav>
     </header>
@@ -40,10 +41,10 @@
             <input type="password" placeholder="confirme a senha" id="confirmacao_senha_input">
             <button onclick="cadastrar()">Cadastrar-se</button>
           </div>
+        <div id="cardErro">
+          <div id="mensagem_erro"></div>
         </div>
-    </div>
-    <div id="cardErro">
-      <div id="mensagem_erro"></div>
+        </div>
     </div>
     <div id="div_aguardar"></div>
   </body>

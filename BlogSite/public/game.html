@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caminhos de Arcadia | Login</title>
-    <link rel="stylesheet" href="./css/estilo6.css">
+    <link rel="stylesheet" href="./css/estilo6.1.css">
     <link rel="icon" href="./assets/icon/st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <style>
@@ -20,8 +20,7 @@
             font-family: 'YourFontName';
             background-color: #f4c2c2;
             font-weight: bold;  
-            background: linear-gradient(to right, #ffafbd, #ffc3a0, #ffedbc);
-        }
+background-image: url('./assets/truecolor.webp');        }
 
         header {
             background-color: #333;
@@ -143,9 +142,25 @@
             color: #333;
         }
 
-        .mostrar-texto {
+        .mostrar-texto2 {
             opacity: 1;
             visibility: visible;
+            background-image: linear-gradient(to left, #256b62, #218aaa);
+            color: white;
+        }
+
+        .mostrar-texto1 {
+            opacity: 1;
+            visibility: visible;
+            background-image: linear-gradient(to left, #107c41, #3aa73a);
+            color: white;
+        }
+
+        .mostrar-texto3 {
+            opacity: 1;
+            visibility: visible;
+            background: linear-gradient(to right, #006080, #4B0082);
+            color: white;
         }
     </style>
 </head>
@@ -157,30 +172,66 @@
         <nav class="nav-links">
             <ul>
                 <li><a href="index.html">Página Inicial</a></li>
+                <li><a href="quiz.html">Quiz</a></li>
+                <li><a href="http://localhost:3333/noticias.html">Mais Sobre Life is Strange</a></li>
+                <li>|</li>
+
                 <li><a href="login.html">Login</a></li>
                 <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="quiz.html">Quiz</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="container">
-            <h1>Onde Jogar Life is Strange?<img width="" src="assets/controller.png" alt=""> </h1>
+            <h1>Onde Jogar Life is Strange?<img src="assets/blackhole2.png"  alt=""> </h1>
+            <section class="destaque1">
+                <h4><h2>Disponibilidade</h2>
+
+                    PC: Explore a história na Steam, Epic Games Store e GOG.com.
+                    Consoles: Desfrute da aventura nos consoles PlayStation, Xbox e Nintendo Switch.
+                    Dispositivos Móveis: Leve a história para onde for com iOS e Android.</h4>
+                    
+                    <h4><h2>Preços</h2>
+
+                        Os preços de Life is Strange variam de acordo com o serviço e a região. No entanto, você pode encontrar o jogo por valores entre R$ 20,00 e R$ 200,00.</h4>
+                        
+                        <h4><h2>Compra</h2>
+
+                            Episódios Individuais: Adquira cada episódio individualmente para construir sua história no seu ritmo.
+                            Coleção Completa: Desfrute da história completa com desconto, adquirindo a coleção que inclui todos os episódios.</h4>
+                            
+                    <h4><h2>Assinatura</h2>
+
+                        Serviços de Assinatura: Explore Life is Strange como parte de serviços como Xbox Game Pass e PlayStation Plus.</h4>
+
+
+                        <h4><h2>Dicas para Economizar:</h2>
+
+                            Compare preços entre serviços: Pesquise em diferentes plataformas para encontrar o melhor preço.
+                            Considere a compra da coleção completa: Se você pretende jogar todos os episódios, a coleção pode oferecer um desconto significativo.
+                            Aproveite promoções e ofertas: Fique atento às promoções e ofertas em cada serviço para adquirir o jogo por um preço ainda mais vantajoso.</h4>
+            </section>
+
+    </main>
+
+    <main>
+        <div class="container">
+            <h1>Principais plataformas</h1>
             <section class="locais">
                 <div class="local steam">
                     <h2>Steam</h2>
-                    <img src="assets/steam.png" alt="Steam" class="imagem-plataforma" onclick="alternarTexto('steam-texto')">
+                    <img src="assets/steam.png" alt="Steam" class="imagem-plataforma" onclick="alternarTexto2()">
                     <p class="texto-plataforma" id="steam-texto">Life is Strange está disponível para compra e download na plataforma Steam. Você pode adquirir o jogo diretamente na loja da Steam e jogá-lo no seu computador.</p>
                 </div>
                 <div class="local ps4">
                     <h2>PlayStation Store</h2>
-                    <img src="assets/ps.png" alt="PlayStation" class="imagem-plataforma" onclick="alternarTexto('playstation-texto')">
+                    <img src="assets/ps.png" alt="PlayStation" class="imagem-plataforma" onclick="alternarTexto3()">
                     <p class="texto-plataforma" id="playstation-texto">Life is Strange também está disponível para PlayStation. Você pode comprar o jogo na PlayStation Store e jogá-lo no seu PlayStation 4 ou PlayStation 5.</p>
                 </div>
                 <div class="local xbox">
                     <h2>Xbox Store</h2>
-                    <img src="assets/xbox.png" alt="Xbox" class="imagem-plataforma" onclick="alternarTexto('xbox-texto')">
+                    <img src="assets/xbox.png" alt="Xbox" class="imagem-plataforma" onclick="alternarTexto1()">
                     <p class="texto-plataforma" id="xbox-texto">Para os jogadores de Xbox, Life is Strange está disponível na Xbox Store. Compre o jogo na loja online e jogue-o no seu Xbox One ou Xbox Series X/S.</p>
                 </div>
             </section>
@@ -188,9 +239,30 @@
     </main>
 
     <script>
-        function alternarTexto(textoId) {
-            var elementoTexto = document.getElementById(textoId);
-            elementoTexto.classList.toggle("mostrar-texto");
+        function alternarTexto1() {
+
+            
+            var elementoTexto = document.getElementById('xbox-texto');
+            elementoTexto.classList.toggle("mostrar-texto1");
+          
+        }
+
+        function alternarTexto2(){
+
+            var elementoTexto = document.getElementById('steam-texto');
+            elementoTexto.classList.toggle("mostrar-texto2");
+
+
+
+        }
+
+        function alternarTexto3(){
+
+            var elementoTexto = document.getElementById('playstation-texto');
+
+
+            elementoTexto.classList.toggle("mostrar-texto3");
+
         }
     </script>
 </body>

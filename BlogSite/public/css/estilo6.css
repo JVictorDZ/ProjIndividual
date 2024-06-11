@@ -9,7 +9,7 @@ body {
   font-family: 'YourFontName';
   background-color: #f4c2c2;
   font-weight: bold;  
-  background-image: linear-gradient(120deg, #f7d0a4, #fdac96);
+  background-image: url('../assets/bro.png');
 }
 
 header {
@@ -25,6 +25,7 @@ header {
   padding: 0 20px;
   background-image: linear-gradient(#a05d60,#b46d70);
   border: solid #a05d60;
+  
 }
 
 .brand h2 {
@@ -136,6 +137,7 @@ h2 {
   margin: 0;
   padding: 0;
   text-align: center;
+  color: aliceblue;
 }
 
 h3 {
@@ -183,6 +185,8 @@ p {
   padding: 0;
   margin-bottom: 100px;
   font-size: 20px;
+  color: aliceblue;
+
 }
 
 .p-left {
@@ -204,7 +208,7 @@ h1, h2, h3, h4, p {
 }
 
 #sec2 {
-  background-image: linear-gradient(120deg, #e6d0ff, #a77ac3);
+  background-image: url('../assets/imagem.png');
   padding: 60px;
   padding-top: 40px;
   border: 8px solid #000;
@@ -256,4 +260,9 @@ a:hover {
 
 a {
   cursor: pointer;
+}
+
+
+#sec2 h1 {
+  color: black;
 }
