@@ -247,6 +247,15 @@ a:hover {
   transform: scale(1.1);
 
 }
+#userLineChart {
+  transition: transform 0.3s ease-in-out; 
+
+}
+
+#userLineChart:hover {
+  transform: scale(1.1);
+
+}
 
 canvas#top3Chart {
   transition: transform 0.3s ease-in-out; 
@@ -315,3 +324,50 @@ canvas#top10Chart:hover {
   width: 26.3%;
  margin-left: 480px;
 }
+
+.dash {
+  background: linear-gradient(to right,
+  #23232e, 
+  #29293a 40%, 
+  #333346 60%, 
+  #2e4b5e); 
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  padding-bottom: 80px;
+  box-shadow: 0px 0px 10px rgba(112, 63, 63, 0.75);
+}
+
+#percentageAcertos {
+  text-align: center;
+  color: aliceblue;
+  font-size: 24px;
+  margin-top: 50px;
+  margin-bottom: -10px;
+}
+
+#percentageAcertosErros {
+  text-align: center;
+  color: aliceblue;
+  font-size: 24px;
+  margin-top: 50px;
+  margin-bottom: -10px;
+}
+
+.img3 {
+    width: 68px;
+    margin-bottom: -18px;
+    margin-left: 10px;
+}
+
+#errosAcertosChart {
+  transition: transform 0.3s ease-in-out; 
+
+
+}
+
+#errosAcertosChart:hover {
+  transform: scale(1.1);
+}
+

@@ -10,6 +10,8 @@ router.get('/ranking/getUserPoints/:userId', rankingController.getUserPoints);
 
 router.get('/getUserPointsHistory/:userId', rankingController.getUserPointsHistory);
 
+router.get('/getAllUserPoints', rankingController.getAllUserPoints);
+
 
 
 

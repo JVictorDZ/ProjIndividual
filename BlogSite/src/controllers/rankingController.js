@@ -33,7 +33,18 @@ async function getUserPointsHistory(req, res) {
     }
 }
 
+async function getAllUserPoints(req, res) {
+    try {
+        const allPoints = await rankingModel.getAllUserPoints();
+        res.json(allPoints);
+    } catch (error) {
+        console.error("Ocorreu erro no fetch dos pontos de todos os usuários:", error);
+        res.status(500).json({ error: "Ocorreu erro no fetch dos pontos de todos os usuários." });
+    }
+}
 
-module.exports = { getRankings, getUserPoints, getUserPointsHistory };
+module.exports = { getRankings, getUserPoints, getUserPointsHistory, getAllUserPoints };
+
+
 
 

@@ -13,8 +13,7 @@
     <script src="./../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
 
@@ -46,157 +45,218 @@
         <div class="user-points">
             <h4>Sua pontuação mais alta: <span id="maxPoints">Carregando...</span></h4>
             <h4>Sua última pontuação: <span id="lastAttemptPoints">Carregando...</span></h4>
-            
         </div>
-
-       
 
         <div class="dash">
-            <div class="user-line-chart" id="ranking">
-                <h2>Seu gráfico de pontuação <img style="margin-bottom: -10px;" src="../assets/rewind.png" alt="" width="70px" height="70x" ></h2>
+            <div class="user-line-chart">
+                <h2>Seu gráfico de pontuação <img style="margin-bottom: -10px;" src="../assets/rewind.png" alt="" width="70px" height="70px"></h2>
                 <canvas id="userLineChart"></canvas>
+                <p id="percentageAcertos">Calculando porcentagem de acertos...</p>
             </div>
+        </div>
+
+        <div class="dash">
             <div id="ranking">
-                <h2>Top 3 Melhores do servidor  <img class="img1" src="../assets/iluStrange2.png" alt="" width="60px" height="100px"> </h2>
+                <h2>Top 3 Melhores do servidor <img class="img1" src="../assets/iluStrange2.png" alt="" width="60px" height="100px"> </h2>
                 <canvas id="top3Chart"></canvas>
                 <h2>Top 10 Melhores do servidor <img class="img2" src="../assets/iluStrange2.png" alt="" width="60px" height="100px"></h2>
-                <canvas id="top10Chart"></canvas>   
+                <canvas id="top10Chart"></canvas>
             </div>
-            
         </div>
-       
+
+        <div class="dash">
+            <h2>Erros e Acertos Gerais<img class="img3" src="../assets/image-removebg-preview.png" alt=""></h2>
+            <canvas id="errosAcertosChart"></canvas>
+            <p id="percentageAcertosErros">Calculando porcentagem de acertos e erros...</p>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('b_usuario').innerHTML = sessionStorage.NOME_USUARIO;
+            document.getElementById('b_usuario').innerHTML = sessionStorage.NOME_USUARIO;
 
-    window.onload = function () {
-        fetch('/ranking/getRankings')
-            .then(response => response.json())
-            .then(data => {
-                console.log('Ranking data:', data); 
-                const top3Names = data.top3.map(user => user.nome);
-                const top3Points = data.top3.map(user => user.pontos);
-                const top10Names = data.top10.map(user => user.nome);
-                const top10Points = data.top10.map(user => user.pontos);
+            window.onload = function() {
+                fetch('/ranking/getRankings')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Ranking data:', data);
+                        const top3Names = data.top3.map(user => user.nome);
+                        const top3Points = data.top3.map(user => user.pontos);
+                        const top10Names = data.top10.map(user => user.nome);
+                        const top10Points = data.top10.map(user => user.pontos);
 
-                const top3Ctx = document.getElementById('top3Chart').getContext('2d');
-                const top10Ctx = document.getElementById('top10Chart').getContext('2d');
+                        const top3Ctx = document.getElementById('top3Chart').getContext('2d');
+                        const top10Ctx = document.getElementById('top10Chart').getContext('2d');
 
-                const chartOptions = {
-                    scales: {
-                        x: {
-                            ticks: { color: 'white' }
-                        },
-                        y: {
-                            ticks: { color: 'white' }
-                        }
-                    },
-                    plugins: {
-                        legend: { labels: { color: 'white' } }
-                    }
-                };
+                        const chartOptions = {
+                            scales: {
+                                x: {
+                                    ticks: { color: 'white' }
+                                },
+                                y: {
+                                    ticks: { color: 'white' }
+                                }
+                            },
+                            plugins: {
+                                legend: { labels: { color: 'white' } }
+                            }
+                        };
 
-                new Chart(top3Ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: top3Names,
-                        datasets: [{
-                            label: 'Pontuação',
-                            data: top3Points,
-                            backgroundColor:  'rgba(128, 0, 128, 1)', // Fundo roxo claro
-                            borderColor: 'rgba(225, 47, 255, 0.5)', // Bordas roxas mais escuras
-                            borderWidth: 1,
-                            borderRadius: 7,
-                            borderWidth: 5
-                        }]
-                    },
-                    options: chartOptions
-                });
+                        new Chart(top3Ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: top3Names,
+                                datasets: [{
+                                    label: 'Pontuação',
+                                    data: top3Points,
+                                    backgroundColor: 'rgba(225, 47, 255, 0.5)', // Fundo roxo claro
+                                    borderColor: '#9B30FF', // bordas roxas mais escuras
+                                    borderWidth: 1,
+                                    borderRadius: 7,
+                                    borderWidth: 5
+                                }]
+                            },
+                            options: chartOptions
+                        });
 
-                new Chart(top10Ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: top10Names,
-                        datasets: [{
-                            label: 'Pontuação',
-                            data: top10Points,
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1,
-                            borderRadius: 7,
-                            borderWidth: 5
-                        }]
-                    },
-                    options: chartOptions
-                });
-            })
-            .catch(error => console.error('Erro ao carregar rankings:', error));
+                        new Chart(top10Ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: top10Names,
+                                datasets: [{
+                                    label: 'Pontuação',
+                                    data: top10Points,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1,
+                                    borderRadius: 7,
+                                    borderWidth: 5
+                                }]
+                            },
+                            options: chartOptions
+                        });
+                    })
+                    .catch(error => console.error('Erro ao carregar rankings:', error));
 
-        const userId = sessionStorage.ID_USUARIO;
+                const userId = sessionStorage.ID_USUARIO;
 
-        if (userId) {
-            fetch(`/ranking/getUserPoints/${userId}`)
-                .then(response => response.json())
-                .then(data => {
-                    console.log('User points data:', data); 
-                    document.getElementById('maxPoints').textContent = data.maxPoints.maxPoints;
-                    document.getElementById('lastAttemptPoints').textContent = data.lastAttemptPoints.pontos;
-
-                    fetch(`/ranking/getUserPointsHistory/${userId}`)
+                if (userId) {
+                    fetch(`/ranking/getUserPoints/${userId}`)
                         .then(response => response.json())
-                        .then(historyData => {
-                            console.log('Pontos do usuario sla:', historyData); 
-                            const attemptDates = historyData.map(attempt => new Date(attempt.data).toLocaleDateString());
-                            const attemptPoints = historyData.map(attempt => attempt.pontos);
+                        .then(data => {
+                            console.log('User points data:', data);
+                            document.getElementById('maxPoints').textContent = data.maxPoints.maxPoints;
+                            document.getElementById('lastAttemptPoints').textContent = data.lastAttemptPoints.pontos;
 
-                            const lineCtx = document.getElementById('userLineChart').getContext('2d');
+                            fetch(`/ranking/getUserPointsHistory/${userId}`)
+                                .then(response => response.json())
+                                .then(historyData => {
+                                    console.log('Pontos do usuario sla:', historyData);
+                                    const attemptDates = historyData.map(attempt => new Date(attempt.data).toLocaleDateString());
+                                    const attemptPoints = historyData.map(attempt => attempt.pontos);
 
-                            new Chart(lineCtx, {
-    type: 'line',
-    data: {
-        labels: attemptDates,
-        datasets: [{
-            label: 'Pontuação ao longo do tempo',
-            data: attemptPoints,
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            borderRadius: 10,
-            tension: 0.5,
-            borderWidth: 5
-        }]
-    },
-    options: {
-        scales: {
-            x: {
-                ticks: { color: 'white' }
-            },
-            y: {
-                ticks: { color: 'white' }
-            }
-        },
-        plugins: {
-            legend: { labels: { color: 'white' } }
-        }
-    }
-});
+                                    const lineCtx = document.getElementById('userLineChart').getContext('2d');
 
+                                    new Chart(lineCtx, {
+                                        type: 'line',
+                                        data: {
+                                            labels: attemptDates,
+                                            datasets: [{
+                                                label: 'Pontuação ao longo do tempo',
+                                                data: attemptPoints,
+                                                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                                borderColor: 'rgba(75, 192, 192, 1)',
+                                                borderWidth: 1,
+                                                borderRadius: 10,
+                                                tension: 0.5,
+                                                borderWidth: 5
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                x: {
+                                                    ticks: { color: 'white' }
+                                                },
+                                                y: {
+                                                    ticks: { color: 'white' }
+                                                }
+                                            },
+                                            plugins: {
+                                                legend: { labels: { color: 'white' } }
+                                            }
+                                        }
+                                    });
+
+                                    // Calcula a porcentagem de acertos
+                                    let totalAcertos = 0;
+                                    for (let i = 0; i < attemptPoints.length; i++) {
+                                        totalAcertos += attemptPoints[i];
+                                    }
+                                    const totalPossivel = attemptPoints.length * 7;
+                                    const porcentagemAcertos = ((totalAcertos / totalPossivel) * 100).toFixed(2);
+
+                                    // Exibe a porcentagem de acertos
+                                    document.getElementById('percentageAcertos').innerHTML = `Sua porcentagem de acertos é de:<span style="color: #A2C3E8;"> ${porcentagemAcertos}%</span> até o momento`;
+
+                                })
+                                .catch(error => console.error('Erro ao carregar histórico de pontos do usuário:', error));
                         })
-                        .catch(error => console.error('Erro ao carregar histórico de pontos do usuário:', error));
-                })
-                .catch(error => console.error('Erro ao carregar pontos do usuário:', error));
-        }
-    }
+                        .catch(error => console.error('Erro ao carregar pontos do usuário:', error));
+                }
 
-    });
+                fetch('/ranking/getAllUserPoints')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('tDS pontos do user:', data);
+                        const totais = data.length;
+                        let corrects = 0;
+                        for (let i = 0; i < data.length; i++) {
+                            i - 1
+                            corrects += data[i];
+                        }
+                        const errors = totais * 7 - corrects;
+
+                        const ctx = document.getElementById('errosAcertosChart').getContext('2d');
+
+                        new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: ['Acertos', 'Erros'],
+                                datasets: [{
+                                    data: [corrects, errors],
+                                    backgroundColor: ['#A2C3E8', '#B22222'], // Azul claro para acertos e vermelho claro para erros
+                                }]
+                            },
+                            options: {
+                                plugins: {
+                                    legend: {
+                                        labels: {
+                                            color: 'white'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+                        // Calcula a porcentagem de acertos e erros
+                        const totalPossivel = corrects + errors;
+                        const porcentagemAcertos = ((corrects / totalPossivel) * 100).toFixed(2);
+                        const porcentagemErros = ((errors / totalPossivel) * 100).toFixed(2);
+
+                        // Exibe as porcentagens de acertos e erros
+                        document.getElementById('percentageAcertosErros').innerHTML = `Porcentagem de acertos: <span style="color: #A2C3E8;">${porcentagemAcertos}%</span> | 
+                            Porcentagem de erros: <span style="color: #FF9999;">${porcentagemErros}%</span>`;
+
+                    })
+                    .catch(error => console.error('Erro ao carregar dados de pontos dos usuários:', error));
+            }
+
+        });
+
         function deslogar() {
             sessionStorage.clear();
             window.location = 'http://localhost:3333/login.html'
-          
         }
-
     </script>
 </body>
 

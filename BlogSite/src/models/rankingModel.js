@@ -82,9 +82,25 @@ async function getUserPointsHistory(userId) {
     }
 }
 
+async function getAllUserPoints() {
+    try {
+        const query = `
+            SELECT tentativa.pontos
+            FROM Tentativa;
+        `;
+        const results = await db.executar(query);
+        return results.map(row => row.pontos);
+    } catch (error) {
+        console.error("Erro ao buscar os pontos de todos os usuários:", error);
+        throw error;
+    }
+}
+
+module.exports = { top3Melhores, top10Melhores, getUserMaxPoints, getUserLastAttemptPoints, getUserPointsHistory, getAllUserPoints };
 
 
 
-module.exports = { top3Melhores, top10Melhores, getUserMaxPoints, getUserLastAttemptPoints, getUserPointsHistory };
+
+
 
 
